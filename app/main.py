@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.routes.v1 import v1
 
 app = FastAPI(
     title="Scribble FastAPI",
@@ -10,6 +11,8 @@ app = FastAPI(
         "email": "kppkanu@gmail.com",
     }
 )
+
+app.include_router(v1.router)
 
 
 @app.get("/", tags=["Main"])
